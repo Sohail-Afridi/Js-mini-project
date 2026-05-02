@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="weather.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="icon" type="image/png" href="https://imgs.search.brave.com/JdLlfCfGXpvAvpVDeJjegeZmKV8HVz-XsNQaVG5bkQI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA0LzQwLzA2Lzk5/LzM2MF9GXzQ0MDA2/OTkzN19kR2hsVDRN/WGNVU0c3SmNVUFZG/YlMwcXIwM2swRWJW/aS5qcGc">
+</head>
+
+<body>
+    <div class="main">
+        <div class="search">
+            <input type="text" placeholder="Enter City Name">
+            <button type="button"><img
+                    src="https://imgs.search.brave.com/rGhSECaCaDl_EHPaEAkV_97QM4xUU85cLHlX4xWeFfE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZnJlZXBuZ2xvZ29z/LmNvbS91cGxvYWRz/L3NlYXJjaC1wbmcv/c2VhcmNoLWljb24t/dHJhbnNwYXJlbnQt/aW1hZ2VzLXZlY3Rv/ci0xNi5wbmc"
+                    alt="search"></button>
+        </div>
+        <div class="weatherDetails">
+
+            <img src="png1.webp" alt="">
+
+            <h1>City Name</h1>
+            <h2>22°C</h2>
+        </div>
+        <div class="humidity">
+            <div class="h">
+                <img src="h2.webp" alt="">
+                <h1> 53% <br> Humidity</h1>
+            </div>
+            <div class="speed">
+                <img src="https://imgs.search.brave.com/_leLA5mcZ31RYTO9PLQd6j-AL4Lyz8QafwlOinB_l_Q/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL3ByZW1p/dW0vcG5nLTI1Ni10/aHVtYi93aW5kLXNw/ZWVkLWljb24tc3Zn/LWRvd25sb2FkLXBu/Zy05MTI2MTQwLnBu/Zz9mPXdlYnAmdz0x/Mjg"
+                    alt="">
+                <h1> 15km/h <br> wind speed</h1>
+            </div>
+        </div>
+
+        <script>
+            const apikey = "ccf2b2b340de50b4f2baeb0ee83f436d";
+            const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+            const searchInput = document.querySelector(".search input");
+            const searchButton = document.querySelector(".search button");
+
+            async function checkWeather(city) {
+                const response = await fetch(apiurl + encodeURIComponent(city) + `&appid=${apikey}`);
+
+                if (!response.ok) {
+                    document.querySelector(".weatherDetails h1").innerHTML = "City not found";
+                    document.querySelector(".weatherDetails h2").innerHTML = "--";
+                    document.querySelector(".h h1").innerHTML = "--% <br> Humidity";
+                    document.querySelector(".speed h1").innerHTML = "-- km/h <br> Wind Speed";
+                    return;
+                }
+
+                const data = await response.json();
+
+                document.querySelector(".weatherDetails h1").innerHTML = data.name;
+                document.querySelector(".weatherDetails h2").innerHTML = `${Math.round(data.main.temp)}°C`;
+                document.querySelector(".h h1").innerHTML = `${data.main.humidity}% <br> Humidity`;
+                document.querySelector(".speed h1").innerHTML = `${data.wind.speed} km/h <br> Wind Speed`;
+            }
+
+            searchButton.addEventListener("click", () => {
+                const city = searchInput.value.trim();
+                if (city) {
+                    checkWeather(city);
+                }
+            });
+
+            searchInput.addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    const city = searchInput.value.trim();
+                    if (city) {
+                        checkWeather(city);
+                    }
+                }
+            });
+
+            checkWeather("Karachi");
+
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="quates.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes Generator</title>
+   
+</head>
+<body>
+    <div class="container">
+        <h1>Quotes Generator</h1>
+        <p id="quote">Quote will appear here...</p>
+       
+        <button>New Quote</button>
+    </div>
+
+    <script>
+       const btn=document.querySelector('button')
+         const quote=document.getElementById('quote');
+         const quotes = [
+  "Discipline builds the life motivation only dreams about.",
+  "Small steps every day create massive change over time.",
+  "Your comfort zone is the biggest barrier to your growth.",
+  "Success is not luck—it’s consistency in disguise.",
+  "Dreams don’t work unless you do.",
+  "Fear fades when action begins.",
+  "The strongest people are built through the hardest times.",
+  "Don’t wait for opportunity—create it.",
+  "Progress matters more than perfection.",
+  "Your mindset shapes your reality.",
+
+  "Failure is just a lesson wearing a tough mask.",
+  "Great things take time—stay patient and persistent.",
+  "You become what you repeatedly do.",
+  "Excuses sound best to the person making them.",
+  "Focus on the goal, not the obstacles.",
+  "Confidence comes from keeping promises to yourself.",
+  "Hard work beats talent when talent gets lazy.",
+  "The future depends on what you do today.",
+  "Stay hungry for growth, not validation.",
+  "Success begins at the edge of your fear.",
+
+  "Your only competition is who you were yesterday.",
+  "Turn your pain into power.",
+  "Winners are just quitters who kept going.",
+  "Energy flows where attention goes.",
+  "Every day is a chance to start again.",
+  "Discomfort is a sign of growth.",
+  "Be stronger than your strongest excuse.",
+  "Consistency is the real superpower.",
+  "The grind you avoid today becomes regret tomorrow.",
+  "Believe in your effort before you believe in results."
+];
+
+btn.addEventListener('click', generateQuote);
+
+function generateQuote() {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  quote.textContent = quotes[randomIndex];
+}
+
+
+    </script>
+</body>
+</html>                              

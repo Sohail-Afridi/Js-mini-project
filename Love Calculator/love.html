@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="love.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+
+        <form action="" class="love">
+            <div class="group">
+                <input required="" type="text" id="Boy" class="input">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Boy Name</label>
+              </div>
+
+              <div class="group">
+                <input required="" type="text" id="Girl" class="input">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Girl Name</label>
+              </div>
+
+<button class="button">
+    <span class="shadow"></span>
+    <span class="edge"></span>
+    <div class="front">
+      <span>Calculate</span>
+    </div>
+  </button>
+
+  <h1 id="result">Result: --</h1>
+
+        </form>
+    </div>
+
+    <script>
+
+        const form = document.querySelector(".love");
+        const resultElement = document.getElementById("result");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const boyInput = document.getElementById("Boy");
+            const girlInput = document.getElementById("Girl");
+
+            const b1 = boyInput.value.trim().length;
+            const g1 = girlInput.value.trim().length;
+            const result = Math.pow(b1 + g1, 3) % 101;
+
+            resultElement.textContent = `Result: ${result}%`;
+            form.reset()
+        });
+     
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="timeshow.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeShow</title>
+</head>
+<body>
+<div id="time">
+
+</div>
+
+<script>
+   
+     
+     setInterval(()=>{
+        let timeShow= document.querySelector("#time")
+ let time=new Date();
+ timeShow.innerHTML=time.toLocaleTimeString();
+     },1000)
+</script>
+</body>
+</html>

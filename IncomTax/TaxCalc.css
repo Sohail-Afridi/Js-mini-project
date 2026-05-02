@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:black;
+    color:white;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    width: 400px;
+    border: 1px solid white;
+    border-radius: 14px;
+    padding: 24px;
+    background-color: #111;
+
+}
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:50px;
+    margin: 30px;
+    padding: 20px;
+}
+
+/* From Uiverse.io by Alaner-xs */ 
+.input {
+ background-color: #383838;
+ border: 1ex solid none;
+ border-top-width: 1.7em;
+ margin: 0;
+ padding: 0;
+ color: #383838;
+ word-wrap: break-word;
+ outline: 7px solid #383838;
+ height: 30px;
+ font-size: 17px;
+ text-align: center;
+ transition: all 1s;
+ max-width: 190px;
+ font-weight: bold;
+ font-family: 'Courier New', Courier, monospace;
+}
+
+.input:hover {
+ border-top-width: 0.2em;
+ background-color: #f1e8e8;
+}
+
+.input:focus {
+ border-top-width: 0.2em;
+ background-color: #f1e8e8;
+}
+/* From Uiverse.io by suda-code */ 
+button {
+    padding: 12.5px 30px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #2ba8fb;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+  }
+  
+  button:hover {
+    background-color: #6fc5ff;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+  }
+  
+  button:active {
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+  }

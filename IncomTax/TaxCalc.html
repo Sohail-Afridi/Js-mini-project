@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="TaxCalc.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <!-- From Uiverse.io by Alaner-xs --> 
+<div class="main">
+
+    <form action="" class="form">
+
+        <input type="text" name="text" class="input" placeholder="Type your text">
+
+        <button type="submit">
+            Calculate Tax: 
+        </button>
+<h2>Result: </h2>
+    </form>
+</div>
+<script>
+
+
+    const form=document.querySelector('.form');
+    const result=document.querySelector("h2");
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+
+        const input=document.querySelector(".input");
+        const amount= parseInt(input.value);
+        let totalAmount=0;
+        if(amount<1200000)
+    {
+        totalAmount=0;
+    }
+    else if(amount<1600000){
+        totalAmount=(amount-1200000)*0.15;
+    }
+    else if(amount<2000000){
+        totalAmount=(amount-1200000)*0.20+60000;
+    }
+    else if(amount<2400000){
+        totalAmount=(amount-1200000)*0.25+60000+800000;
+    }
+    else{
+        totalAmount=(amount-1200000)*0.25+60000+80000+100000;
+    }
+result.textContent=`Total Tax ${totalAmount}`
+        form.reset()
+    })
+</script>
+</body>
+</html>

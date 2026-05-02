@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bgchanger.css">
+</head>
+
+<body>
+    <div class="main">
+
+        <button id="green" style=" font-weight: bold;
+font-size: 15px;background-color: green ; color: white;">Green</button>
+         <button id="white"  style=" font-weight: bold;
+font-size: 15px;background-color:white  ; color: black;">White</button>
+         <button id="red"  style=" font-weight: bold;
+font-size: 15px;background-color:red  ; color:white;">Red</button>
+        <button id="blue"  style="font-weight: bold;
+font-size: 15px;background-color:blue  ; color: white">Blue</button>
+        <button id="pink"  style="font-weight: bold;
+font-size: 15px; background-color:pink  ; color:white;">Pink</button>
+    </div>
+
+<script>
+    //Method One
+const main= document.querySelector(".main");
+main.addEventListener('click', (e)=>{
+
+    if(e.target.tagName!=='BUTTON')return;
+    const main=document.querySelector('.main');
+main.style.backgroundColor = e.target.id;
+})
+
+//Method Two
+//     const main=document.querySelector(".main");
+//     main.addEventListener("click",(e)=>{
+// const child=e.target;
+// console.log(e.target);
+// const body=document.querySelector(".main");
+// body.style.backgroundColor=child.id;
+//     })
+
+</script>
+</body>
+
+</html>
