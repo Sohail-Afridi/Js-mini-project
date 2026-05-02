@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astrologist Form</title>
+  <link rel="stylesheet" href="astro.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <h1>Astrologist</h1>
+      <form class="astro-form">
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="text" id="surename" placeholder="Surenme" required />
+        <input type="number" id="days" placeholder="Days" required />
+        <input type="number" id="months" placeholder="Months" required />
+        <input type="number" id="year" placeholder="Year" required />
+        <button type="submit">Get Prediction</button>
+
+        <h2 id="result"> </h2>
+      </form>
+    </section>
+  </main>
+
+  <script>
+const zodiacSigns = [
+
+  "Aries",
+  "Taurus",
+  "Gemini",
+  "Cancer",
+  "Leo",
+  "Virgo",
+  "Libra",
+  "Scorpio",
+  "Sagittarius",
+  "Capricorn",
+  "Aquarius",
+  "Pisces"
+];
+const compliment=[
+  "You have an incredible ability to read the stars with clarity.",
+  "Your insights always feel accurate and meaningful.",
+  "You explain complex astrological concepts so beautifully.",
+  "Your intuition is truly impressive.",
+  "You bring a sense of calm and understanding to every reading.",
+  "Your knowledge of astrology is deep and inspiring.",
+  "You make people feel seen and understood.",
+  "Your predictions are always thoughtful and well-explained.",
+  "You have a natural gift for guiding others.",
+  "Your passion for astrology really shines through your work.",
+  "You connect cosmic patterns to real life in a powerful way.",
+  "Your readings are both insightful and comforting.",
+  "You have a unique way of interpreting the stars.",
+  "Your wisdom helps people make better decisions.",
+  "You explain planetary movements in such an engaging way.",
+  "Your energy is positive and uplifting.",
+  "You have a remarkable sense of intuition and awareness.",
+  "Your guidance feels genuine and trustworthy.",
+  "You turn astrology into something truly meaningful.",
+  "Your work inspires others to understand themselves better."
+]
+const victimCardCompliments = [
+  "You’ve been through so much, and it shows in your strength.",
+  "Not everyone could handle what you’ve faced—you’re still standing.",
+  "You deserve so much better than what life has given you.",
+  "Your patience in tough times is truly admirable.",
+  "Even after everything, you still have a kind heart.",
+  "People don’t always see your struggles, but they are real and valid.",
+  "You carry pain with so much grace.",
+  "It’s amazing how you keep going despite everything.",
+  "Your story shows resilience that many don’t have.",
+  "You’ve endured more than most people realize.",
+
+  "You deserve understanding, not judgment.",
+  "Through all the hardship, you’ve remained genuine.",
+  "Your ability to keep trying is inspiring.",
+  "You’ve handled unfair situations with strength.",
+  "Even when life wasn’t kind, you stayed kind.",
+  "You’ve turned your struggles into quiet strength.",
+  "Not everyone sees your battles, but they matter.",
+  "You’ve been strong for too long—you deserve peace.",
+  "Your survival itself is something to be proud of.",
+  "Despite everything, you still shine in your own way."
+];   
+const astroRecommendations = [
+  "Highly recommend for accurate and insightful readings.",
+  "A great astrologist who explains everything clearly.",
+  "Perfect choice if you want deep and meaningful guidance.",
+  "Very professional and knowledgeable in astrology.",
+  "Gives honest and thoughtful predictions.",
+  "Amazing experience—truly understands cosmic patterns.",
+  "Highly reliable for life guidance through astrology.",
+  "Explains planetary movements in a simple way.",
+  "Very intuitive and easy to connect with.",
+  "Provides detailed and personalized readings.",
+
+  "Great at helping you understand yourself better.",
+  "Offers practical advice along with predictions.",
+  "A trustworthy astrologist you can depend on.",
+  "Makes astrology easy and interesting to understand.",
+  "Very patient and listens carefully to concerns.",
+  "Guidance feels genuine and well thought out.",
+  "Perfect for anyone new to astrology.",
+  "Brings clarity and direction in confusing times.",
+  "A skilled astrologist with strong intuition.",
+  "Highly recommended for accurate horoscope readings."
+];
+const predictions = [
+  "A new opportunity is approaching that will bring positive change.",
+  "You may face a small challenge soon, but it will lead to growth.",
+  "Financial stability is improving gradually in your favor.",
+  "Someone from your past might reconnect with you.",
+  "This is a good time to focus on personal development.",
+  "Your hard work will soon start showing results.",
+  "A period of emotional clarity is coming your way.",
+  "You may receive good news related to career or studies.",
+  "Trust your intuition—it will guide you correctly.",
+  "A new relationship or bond may begin soon.",
+
+  "You will overcome a recent obstacle with confidence.",
+  "Positive energy surrounds your decisions this week.",
+  "Be cautious with spending—balance is important.",
+  "A travel opportunity may arise unexpectedly.",
+  "Your communication skills will bring you success.",
+  "Someone close to you will offer helpful advice.",
+  "A creative idea could turn into something valuable.",
+  "Patience will reward you in an ongoing situation.",
+  "Your confidence will attract new opportunities.",
+  "A fresh start is on the horizon—embrace it."
+];
+const form=document.querySelector(".astro-form");
+    form.addEventListener("submit", (e)=>{
+        e.preventDefault();
+const name=document.getElementById("name").value;
+const surename=document.getElementById("surename").value;
+const day=parseInt(document.getElementById("days").value);
+const month=parseInt(document.getElementById("months").value);
+const year=parseInt(document.getElementById("year").value);
+
+const text=`Hi ${name} ${surename}, your ZodiacSign is ${zodiacSigns[month-1]}. ${compliment[day-1]}. ${victimCardCompliments[year%30]}. ${astroRecommendations[(day*month)%30]} ${predictions[(name.length*surename.length)%20]}`
+
+
+document.getElementById("result").textContent=text;
+    })
+  </script>
+</body>
+
+</html>

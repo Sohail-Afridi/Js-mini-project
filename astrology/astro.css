@@ -1,0 +1,104 @@
+:root {
+  --bg-start: #1e1b4b;
+  --bg-end: #312e81;
+  --card-bg: rgba(255, 255, 255, 0.12);
+  --text-color: #f8fafc;
+  --input-bg: rgba(255, 255, 255, 0.18);
+  --input-border: rgba(255, 255, 255, 0.28);
+  --btn-start: #f59e0b;
+  --btn-end: #ea580c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.page {
+  width: 100%;
+  max-width: 460px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  padding: 28px 24px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
+}
+
+h1 {
+  color: var(--text-color);
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  letter-spacing: 0.8px;
+}
+
+.astro-form {
+  display: grid;
+  gap: 14px;
+}
+
+.astro-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text-color);
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.astro-form input::placeholder {
+  color: rgba(248, 250, 252, 0.8);
+}
+
+.astro-form input:focus {
+  border-color: #facc15;
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.25);
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.astro-form button {
+  margin-top: 6px;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(120deg, var(--btn-start), var(--btn-end));
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.astro-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(234, 88, 12, 0.4);
+}
+
+.astro-form button:active {
+  transform: translateY(0);
+}
+
+#result {
+  margin-top: 8px;
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: 500;
+}

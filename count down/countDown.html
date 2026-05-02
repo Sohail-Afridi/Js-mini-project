@@ -9,25 +9,41 @@
 <body>
     <div class="container">
         <h1>Olympic Count Down</h1>
-        <h2 id="result">
-        </h2>
+        <div class="countdown-cols">
+            <div class="count-col">
+                <h2 id="days">0</h2>
+                <span class="unit">Days</span>
+            </div>
+            <div class="count-col">
+                <h2 id="hours">0</h2>
+                <span class="unit">Hours</span>
+            </div>
+            <div class="count-col">
+                <h2 id="minutes">0</h2>
+                <span class="unit">Minutes</span>
+            </div>
+            <div class="count-col">
+                <h2 id="seconds">0</h2>
+                <span class="unit">Seconds</span>
+            </div>
         </div>
-   
+    </div>
 </body>
 <script>
 
-    setInterval(()=>{
-        const timeShow=document.querySelector(".container");
-    const result=document.getElementById("result");
-    const CurrentTime=Date.now();
-    const OlympicTime= new Date(2028,6,14).getTime();
-        const timeRemaining= OlympicTime-CurrentTime;
-        const hours=Math.floor((timeRemaining)/(1000*60*60));
-        const minutes=Math.floor((timeRemaining)/(1000*60));
-        const days=Math.floor((timeRemaining)/(1000*60*60*24));
-        const seconds=Math.floor((timeRemaining)/(1000));
-        result.textContent=`${days}days ${hours}hours  ${minutes}minutes  ${seconds}seconds`
-    },1000)
+    setInterval(() => {
+        const currentTime = Date.now();
+        const olympicTime = new Date(2028, 6, 14).getTime();
+        const timeRemaining = Math.max(0, olympicTime - currentTime);
+        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
+    }, 1000);
 
 </script>
 </html>
