@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+        }
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(45deg, #0a0a0a, #3a4452);
+
+        }
+        .container
+        {
+            height:450px;
+            width:350px;
+            background:ltransparenrt;
+            box-shadow:0px 13px 15px 
+        }
+
+.container #input-field {
+   
+text-align: right;
+    width:100;
+    height:50px;
+    color:white;
+    background-color:transparent;
+    border:none;
+    margin-top:40px;
+    font-weight:bold;
+    font-size: x-large;
+}
+.btns
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 30px;
+
+}
+
+.btns button{
+height: 50px;
+width:50px;
+    border:none;
+    margin:auto;
+    margin-top: 10px;
+cursor: pointer;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: x-large;
+    background: transparent;
+    color:white;
+    border: 1px solid rgb(99, 99, 39);
+    box-shadow: inset 3px 3px 1ch rgb(204, 195, 195), inset -3px -3px 1ch black  
+   
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+     
+        <input type="text" id="input-field" placeholder="0" readonly>
+        <hr>
+        <div class="btns">
+        <button style="color:blue;">AC</button>
+        <button style="color:red; font-size: larger;">DEL</button>
+        <button>%</button>
+        <button>/</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>*</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>+</button>
+        <button>00</button>
+        <button>0</button>
+        <button>.</button>
+        <button style="color:yellow;">=</button>
+    </div>
+    </div>
+</body>
+<script>
+    let str = "";
+    let buttons = document.querySelectorAll("button");
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+
+            try {
+
+                if (e.target.innerHTML === "=") {
+
+                    str = eval(str);
+                    document.getElementById("input-field").value = str;
+
+                }
+                else if (e.target.innerHTML === "AC") {
+
+                    str = "";
+                    document.getElementById("input-field").value = str;
+
+                }
+                else if (e.target.innerHTML === "DEL") {
+
+                    str = str.slice(0, -1);
+                    document.getElementById("input-field").value = str;
+
+                }
+                else {
+
+                    str += e.target.innerHTML;
+                    document.getElementById("input-field").value = str;
+
+                }
+
+            } catch (error) {
+
+                document.getElementById("input-field").value = "Error";
+                str = "";
+
+            }
+
+        });
+    });
+</script>
+</html>
